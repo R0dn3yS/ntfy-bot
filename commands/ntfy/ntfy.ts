@@ -19,9 +19,16 @@ export default class NtfyCommand extends Command {
 			return ctx.message.reply('Please provide a message.');
 		}
 
+		const headers = new Headers({
+			accept: "application/json",
+		});
+
+		headers.append('Title', 'Discord Notification');
+
 		await fetch(`https://${config.ntfyServer}/ntfy-bot`, {
 			method: 'POST',
-			body: `${message}`
+			body: `${message}`,
+			headers: headers,s
 		});
 
 		ctx.channel.send(`Message: \`${message}\` sent!`);
