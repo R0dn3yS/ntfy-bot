@@ -1,12 +1,16 @@
 import { Command, CommandContext } from '../../deps.ts';
-import type { Args } from '../../deps.ts'
+import type { Args, User } from '../../deps.ts'
 import { config } from '../../config.ts';
 
-export default class NtfyCommand extends Command {
-	name = 'ntfy';
-	aliases = ['notify'];
+export default class MsgCommand extends Command {
+	name = 'msg';
+	aliases = ['message'];
 	category = 'ntfy';
 	args: Args[] = [
+		{
+			name: 'user',
+			match: 'user',
+		},
 		{
 			name: 'message',
 			match: 'rest',
@@ -14,8 +18,11 @@ export default class NtfyCommand extends Command {
 	];
 	async execute(ctx: CommandContext) {
 		const message = ctx.args!.message as string;
+		const user = ctx.args!.message as User;
 		
-		if (!message) {
+		if (!user.id) {
+			return ctx.message.reply('No user specified.');
+		} else if (!message) {
 			return ctx.message.reply('Please provide a message.');
 		}
 
@@ -25,7 +32,7 @@ export default class NtfyCommand extends Command {
 
 		headers.append('Title', 'Discord Notification');
 
-		await fetch(`https://${config.ntfyServer}/ntfy-bot`, {
+		await fetch(`https://${config.ntfyServer}/${!user.id}`, {
 			method: 'POST',
 			body: `${message}`,
 			headers: headers,
