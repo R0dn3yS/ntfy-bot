@@ -18,7 +18,7 @@ export default class MsgCommand extends Command {
 	];
 	async execute(ctx: CommandContext) {
 		const message = ctx.args!.message as string;
-		const user = ctx.args!.message as User;
+		const user = ctx.args!.user as User;
 		
 		if (!user.id) {
 			return ctx.message.reply('No user specified.');
