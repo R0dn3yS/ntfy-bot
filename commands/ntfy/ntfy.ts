@@ -28,7 +28,7 @@ export default class NtfyCommand extends Command {
 		await fetch(`https://${config.ntfyServer}/ntfy-bot`, {
 			method: 'POST',
 			body: `${message}`,
-			headers: headers,s
+			headers: headers,
 		});
 
 		ctx.channel.send(`Message: \`${message}\` sent!`);
