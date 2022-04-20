@@ -32,7 +32,7 @@ export default class MsgCommand extends Command {
 
 		headers.append('Title', 'Discord Notification');
 
-		await fetch(`https://${config.ntfyServer}/${!user.id}`, {
+		await fetch(`https://${config.ntfyServer}/${user.id}`, {
 			method: 'POST',
 			body: `${message}`,
 			headers: headers,
