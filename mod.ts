@@ -21,7 +21,7 @@ client.once('ready', async () => {
 	headers.append('Tags', `gear`);
 	headers.append('Priority', 'low');
 
-	await fetch(`https://${config.ntfyServer}/ntfy-bot`, {
+	await fetch(`https://${config.ntfyServer}/bot-status`, {
 			method: 'POST',
 			body: `ntfy-bot is back online!`,
 			headers: headers,
