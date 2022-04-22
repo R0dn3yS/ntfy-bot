@@ -31,6 +31,8 @@ export default class MsgCommand extends Command {
 		});
 
 		headers.append('Title', 'Discord Notification');
+		headers.append('Tags', 'left_speech_bubble');
+		headers.append('X-Tags', `${ctx.message.author.username}`);
 
 		await fetch(`https://${config.ntfyServer}/${user.id}`, {
 			method: 'POST',
