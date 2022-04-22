@@ -23,8 +23,8 @@ export default class NtfyCommand extends Command {
 			accept: "application/json",
 		});
 
-		headers.append('Title', 'Discord Notification');
-		headers.append('Tags', `left_speech_bubble,${ctx.message.author.username}`);
+		headers.append('Title', `${ctx.message.author.username}#${ctx.message.author.discriminator} (Discord)`);
+		headers.append('Tags', `left_speech_bubble`);
 
 		await fetch(`https://${config.ntfyServer}/ntfy-bot`, {
 			method: 'POST',

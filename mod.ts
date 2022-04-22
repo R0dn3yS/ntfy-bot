@@ -17,7 +17,7 @@ client.once('ready', async () => {
 		accept: "application/json",
 	});
 
-	headers.append('Title', 'Discord Notification');
+	headers.append('Title', 'Bot Status');
 	headers.append('Tags', `gear`);
 	headers.append('Priority', 'low');
 
