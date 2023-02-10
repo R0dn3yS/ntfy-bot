@@ -6,6 +6,8 @@ export default class NtfyCommand extends Command {
 	name = 'ntfy';
 	aliases = ['notify'];
 	category = 'ntfy';
+  description = 'Notify all users';
+  usage = ' [message]';
 	args: Args[] = [
 		{
 			name: 'message',

@@ -5,6 +5,8 @@ import { config } from '../../config.ts';
 export default class PriomsgCommand extends Command {
 	name = 'priomsg';
 	category = 'ntfy';
+  description = 'Send high priority message';
+  usage = ' [user] [message]';
 	ownerOnly = true;
 	args: Args[] = [
 		{

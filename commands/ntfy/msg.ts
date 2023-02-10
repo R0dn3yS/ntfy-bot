@@ -6,6 +6,8 @@ export default class MsgCommand extends Command {
 	name = 'msg';
 	aliases = ['message'];
 	category = 'ntfy';
+  description = 'Send message';
+  usage = ' [user] [message]';
 	args: Args[] = [
 		{
 			name: 'user',

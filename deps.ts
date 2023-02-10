@@ -1,1 +1,1 @@
-export * from 'https://code.harmony.rocks/v2.6.0/mod.ts';
+export * from 'https://code.harmony.rocks/v2.8.0/mod.ts';
